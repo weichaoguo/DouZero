@@ -13,7 +13,10 @@ NumOnes2Array = {0: np.array([0, 0, 0, 0]),
                  4: np.array([1, 1, 1, 1])}
 
 deck = []
-for i in range(3, 15):
+for i in range(3, 7):
+    deck.extend([i for _ in range(4)])
+deck.extend([7])
+for i in range(8, 15):
     deck.extend([i for _ in range(4)])
 deck.extend([17 for _ in range(4)])
 deck.extend([20, 30])
@@ -58,10 +61,10 @@ class Env:
         # Randomly shuffle the deck
         _deck = deck.copy()
         np.random.shuffle(_deck)
-        card_play_data = {'landlord': _deck[:20],
-                          'landlord_up': _deck[20:37],
-                          'landlord_down': _deck[37:54],
-                          'three_landlord_cards': _deck[17:20],
+        card_play_data = {'landlord': _deck[:19],
+                          'landlord_up': _deck[19:35],
+                          'landlord_down': _deck[35:51],
+                          'three_landlord_cards': _deck[16:19],
                           }
         for key in card_play_data:
             card_play_data[key].sort()
